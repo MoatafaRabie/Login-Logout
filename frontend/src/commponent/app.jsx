@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App";
 import Home from "./Home";
@@ -11,7 +11,13 @@ import Forget from "./Forget";
 
 
 const AApp=()=>{
-    const [logout, setLogout] = useState(false);
+    const [logout, setLogout] = useState(()=>{
+     const savedState= localStorage.getItem("logout");
+      return savedState ==="true" ;
+    });
+  useEffect(()=>{
+    localStorage.setItem("logout",logout)
+  },[logout])
 
 const router = createBrowserRouter(
 [

@@ -24,10 +24,14 @@ function App({logout, setLogout}){
                 <NavLink to="/login">Login</NavLink>
               </button>
             </>
-          ) : (
+          ) : (<>
             <button className="hover:bg-slate-600 rounded-md p-1" onClick={handleLogout}>
-              <NavLink to="/">Logout</NavLink>
+              <NavLink to="/login">Logout</NavLink>
             </button>
+            <button className="hover:bg-slate-600 h-9 w-9 bg-slate-100 text-white rounded-full p-1" >
+            <NavLink to="/profile"> </NavLink>
+          </button>
+          </>
           )}
         </ul>
       </div>
